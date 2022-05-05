@@ -10,13 +10,14 @@ import App from "./App";
 import { store, persistor } from "./store/store";
 
 import "./index.scss";
+import Spinner from "./components/spinner/spinner.component";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        {/* instead of null we can put our loading component, null means not to show anything while loading */}
+      <PersistGate loading={<Spinner />} persistor={persistor}>
+        {/* instead of Spinner we can put null, null means not to show anything while loading */}
         <BrowserRouter>
           <App />
         </BrowserRouter>
