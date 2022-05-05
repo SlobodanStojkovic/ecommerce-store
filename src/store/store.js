@@ -29,7 +29,9 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const middleWares = [loggerMiddleware];
+const middleWares = [
+  process.env.NODE_ENV === "development" && loggerMiddleware,
+].filter(Boolean);  //if we are in development we will keep the middleware, else the array will be empty
 
 const composedEnhancers = compose(applyMiddleware(...middleWares));
 
