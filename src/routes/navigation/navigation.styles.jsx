@@ -16,7 +16,7 @@ export const LogoContainer = styled(Link)`
   svg {
     position: absolute;
     top: 25px;
-    left: 40px;
+    left: 45px;
   }
 `;
 
