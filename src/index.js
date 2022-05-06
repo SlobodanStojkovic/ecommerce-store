@@ -1,5 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
+
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
@@ -12,8 +13,7 @@ import { store, persistor } from "./store/store";
 import "./index.scss";
 import Spinner from "./components/spinner/spinner.component";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={<Spinner />} persistor={persistor}>
@@ -23,5 +23,6 @@ root.render(
         </BrowserRouter>
       </PersistGate>
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
