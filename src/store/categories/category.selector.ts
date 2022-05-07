@@ -1,9 +1,12 @@
 import { createSelector } from "reselect";
 
+import { RootState } from "../store";
+
 import { CategoriesState } from "./category.reducer";
 import { CategoryMap } from "./category.types";
 
-const selectCategoryReducer = (state): CategoriesState => state.categories;
+const selectCategoryReducer = (state: RootState): CategoriesState =>
+  state.categories;
 
 export const selectCategories = createSelector(
   [selectCategoryReducer], //output of this are categories, if we had [selectCategoryReducer, selectCurrentUsers] then in line bellow we would have (categoriesSlice, currentUserSlice) => ...
